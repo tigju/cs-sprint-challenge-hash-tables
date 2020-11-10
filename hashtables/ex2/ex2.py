@@ -11,8 +11,8 @@ def reconstruct_trip(tickets, length):
     # create hashtable
     hashtable = {}
     # create list to hold the route
-    route = [None]*(length-1)
-
+    route = [None]*(length)
+    len(route)
     # go through the tickets and map source and destrination
     for t in tickets:
         # if source is note put it as the first element in array (as the first destination)
@@ -22,8 +22,9 @@ def reconstruct_trip(tickets, length):
         else:
             hashtable.update({t.source: t.destination})
 
-    # go through the length and check if current key is the next key's value and append it
-    for i in range(1, length-1):
+    # go through the length of arr and assign route[i] to a value (destination) 
+    # of key hashtable[route[i-1]]
+    for i in range(1, length):
         route[i] = hashtable[route[i-1]]
 
     return route
@@ -44,3 +45,5 @@ tickets = [
 ]
 
 print(reconstruct_trip(tickets, 10))
+
+
